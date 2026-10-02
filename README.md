@@ -1,6 +1,10 @@
-# Secure File Synchronization System
 
-A Python client-server project that combines authenticated file access, TLS/X.509 certificate setup, user-specific storage, and automatic file synchronization between clients and a server.
+# Cryptography Algorithms in Java 🔐☕
+
+A collection of Java implementations created to explore the programming and mathematical concepts behind public-key cryptography.
+
+The project includes work with **Diffie-Hellman key exchange, ElGamal encryption, and elliptic-curve cryptography (ECC)**.
+
 ## Cryptographic Concepts
 
 ```mermaid
@@ -13,67 +17,91 @@ flowchart LR
     C --> F["Encryption / Decryption"]
     D --> G["EC Point Operations"]
 ```
-## Highlights
 
-- Python socket-based client/server architecture
-- TLS/X.509 certificate setup with OpenSSL
-- Elliptic-curve key generation
-- Password hashing and account authentication
-- Multiple client directories
-- Automatic file watching and synchronization
-- Upload, download, modification, and deletion handling
-- Multithreaded server behavior
+## What's Included
 
-## Files
+### 🔑 Diffie-Hellman
 
-- `server.py` — server-side networking, authentication, storage, and synchronization logic
-- `client.py` — client interface and synchronization logic
-- `setup_certificates.sh` — installs required Python packages and generates local certificates/keys
+Explores the process of establishing a shared secret between two parties using public values without directly transmitting the shared secret itself.
 
-## Setup
+### 🔒 ElGamal
 
-Create and activate a Python 3 virtual environment, then run:
+Explores public-key encryption and decryption using the mathematical concepts behind the ElGamal cryptosystem.
 
-```bash
-bash setup_certificates.sh
+### 📐 Elliptic-Curve Cryptography
+
+Explores elliptic-curve cryptography and the use of elliptic-curve point operations in cryptographic systems.
+
+## Technologies & Concepts
+
+`Java` `Cryptography` `Diffie-Hellman` `ElGamal` `ECC` `Public-Key Cryptography`
+
+Concepts explored in this project include:
+
+- Public and private keys
+- Shared-secret generation
+- Encryption and decryption
+- Modular arithmetic
+- Cryptographic algorithms
+- Elliptic-curve operations
+
+## Project Structure
+
+```text
+cryptography-algorithms-java/
+│
+├── src/
+│   └── Java source files
+│
+└── README.md
 ```
 
-The setup script installs the Python packages used by the project and generates the CA, server, and client certificate material.
+The Java implementations are located in the `src` directory.
 
-During certificate creation, the current implementation expects these Common Names:
+## Running the Project
 
-- CA: `CA`
-- Server: `Server`
-- Client: `Client`
-
-The challenge password used by the original implementation is `cookie`.
-
-After generation, place the server certificate files with `server.py` and the client certificate files with `client.py` as expected by the source code.
-
-## Running
-
-Start the server in one terminal:
+Clone the repository:
 
 ```bash
-python server.py
+git clone https://github.com/strawberry-frog/cryptography-algorithms-java.git
 ```
 
-Start a client in another terminal:
+Move into the project directory:
 
 ```bash
-python client.py
+cd cryptography-algorithms-java
 ```
 
-A second client can be run from a separate client directory to demonstrate synchronization between users/clients.
+The individual Java source files can then be compiled and run using a Java Development Kit (JDK).
 
-## Synchronization
+For example:
 
-Once authenticated, the client watches its user directory for file changes. Creating, modifying, or deleting files triggers synchronization jobs that are communicated to the server and propagated to clients.
+```bash
+javac src/FileName.java
+java -cp src FileName
+```
 
-## Known Limitations
+Replace `FileName` with the name of the Java class you want to run.
 
-This is an educational project rather than a production file-storage system. The original implementation can take time to propagate some changes between clients, and deletion operations can produce inconsistent file movement in some cases.
+## Why I Built This
 
-## Security Note
+I created these implementations while learning how cryptographic algorithms work beyond just calling an existing encryption library.
 
-Private keys and generated certificate material are intentionally excluded from this repository. Generate them locally with `setup_certificates.sh`. Do not commit generated `.key` files.
+Writing the algorithms in Java gave me a better understanding of the mathematics and logic involved in key exchange, public-key encryption, and elliptic-curve cryptography.
+
+## Notes
+
+This repository is intended for **educational purposes** and demonstrates cryptographic concepts rather than production-ready cryptographic software.
+
+Real applications should use established and thoroughly tested cryptographic libraries instead of custom implementations.
+
+---
+
+```text
+      🔑  +  ☕  +  math
+             |
+             v
+      learning crypto
+      one algorithm
+        at a time
+```
