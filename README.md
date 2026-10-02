@@ -1,7 +1,18 @@
 # Secure File Synchronization System
 
 A Python client-server project that combines authenticated file access, TLS/X.509 certificate setup, user-specific storage, and automatic file synchronization between clients and a server.
+## Cryptographic Concepts
 
+```mermaid
+flowchart LR
+    A["☕ Java Cryptography"] --> B["🔑 Diffie-Hellman"]
+    A --> C["🔒 ElGamal"]
+    A --> D["📐 Elliptic Curve Cryptography"]
+
+    B --> E["Shared Secret"]
+    C --> F["Encryption / Decryption"]
+    D --> G["EC Point Operations"]
+```
 ## Highlights
 
 - Python socket-based client/server architecture
